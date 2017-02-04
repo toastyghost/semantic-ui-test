@@ -1,0 +1,781 @@
+<!doctype html>
+<html charset="utf-8" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Semantic UI Test</title>
+        <meta name="description" content="">
+
+        <!-- jQuery -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+        <!-- Tablesort plugin -->
+        <script src="bower_components/jquery-tablesort/jquery.tablesort.min.js"></script>
+
+        <!-- Semantic UI -->
+        <link rel="stylesheet" href="bower_components/semantic/dist/semantic.min.css">
+        <script src="bower_components/semantic/dist/semantic.min.js"></script>
+
+        <!-- C3/D3 (charts) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.css">
+        <script src="https://d3js.org/d3.v3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.js"></script>
+
+        <!-- Custom -->
+        <link rel="stylesheet" href="assets/css/custom.css">
+        <script src="assets/js/custom.js"></script>
+    </head>
+
+    <body>
+        <div id="nav" class="ui large attached stackable borderless compact menu">
+            <div id="logo" class="item">
+                <h1 id="liquid-logo">LiquidMedium</h1>
+            </div>
+
+            <div class="item">
+                <a class="ui simple item">Dashboard</a>
+
+                <div class="ui simple dropdown item">
+                    Create
+
+                    <div class="menu">
+                        <div class="ui simple dropdown item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">Requisition</span>
+
+                            <div class="menu">
+                                <a class="item">Blank</a>
+
+                                <hr>
+
+                                <div class="item">Template 1</div>
+                                <div class="item">Template 2</div>
+                                <div class="item">Template 3</div>
+                            </div>
+                        </div>
+
+                        <a class="item">Candidate</a>
+                        <a class="item">Assignment</a>
+
+                        <!--<hr>
+
+                        <a class="item">Timesheet</a>
+                        <a class="item">Expense</a>
+                        <a class="item">OPW</a>-->
+
+                        <hr>
+
+                        <a class="item">Batch Timesheet</a>
+                        <a class="item">Batch Expense</a>
+                        <a class="item">Batch OPW</a>
+                    </div>
+                </div>
+
+                <div class="ui simple dropdown item">
+                    Manage
+
+                    <div class="menu">
+                        <a class="item">Workforce</a>
+                        <a class="item">Certifications</a>
+                        <a class="item">Forms</a>
+                        <a class="item">Links</a>
+
+                        <hr>
+
+                        <a class="item">Candidates</a>
+                        <a class="item">Assignments</a>
+                        <a class="item">Certifications</a>
+
+                        <hr>
+
+                        <div class="ui simple dropdown item">
+                            <i class="dropdown icon"></i>
+                            Audit
+
+                            <div class="menu">
+                                <a class="item">Timesheet</a>
+                                <a class="item">Expense</a>
+                                <a class="item">OPW</a>
+                            </div>
+                        </div>
+
+                        <div class="ui simple dropdown item">
+                            <i class="dropdown icon"></i>
+                            Financial
+
+                            <div class="menu">
+                                <a class="item">Invoicing</a>
+                                <a class="item">Pay/Bill</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui simple dropdown item">
+                    Reports
+
+                    <div class="menu">
+                        <div class="ui simple dropdown item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">Assignment</span>
+
+                            <div class="menu">
+                                <a class="item">Active Assignments</a>
+                                <a class="item">Available Candidates</a>
+                            </div>
+                        </div>
+
+                        <div class="ui simple dropdown item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">Certifications</span>
+
+                            <div class="menu">
+                                <a class="item">Upcoming Expirations</a>
+                                <a class="item">Contractor Compliance</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui simple dropdown item">
+                    System
+
+                    <div class="menu">
+                        <a class="item">Compass</a>
+                        <a class="item">Accounts</a>
+                        <a class="item">Browser Compatibility</a>
+
+                        <div class="ui simple dropdown item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">Data Maintenance</span>
+
+                            <div class="menu">
+                                <a class="item">Jobs</a>
+                                <a class="item">Locations</a>
+                                <a class="item">Cost Centers</a>
+                                <a class="item">Data Types</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ul id="quick-nav" class="simple right menu columns">
+                <li>
+                    <a class="item">
+                        <i class="large user icon"></i>
+                        <div class="quick-nav-label">User</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="item">
+                        <i class="large mail outline icon"></i>
+                        <div class="quick-nav-label">Mail</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="item">
+                        <i class="large help icon"></i>
+                        <div class="quick-nav-label">Help</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="item" id="signout-link">
+                        <i class="large sign out icon"></i>
+                        <div class="quick-nav-label">Exit</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div id="content" class="ui container">
+
+            <div class="ui top attached tabular menu">
+                <a class="active item" data-tab="dashboard-tab">Dashboard</a>
+                <a class="item" data-tab="transaction-queue-tab">Transactions</a>
+                <a class="item" data-tab="priority-tab">Priority</a>
+                <a class="item" data-tab="create-tab">
+                    <i class="ui plus icon"></i>
+                </a>
+            </div>
+
+            <div class="ui active bottom attached segment tab" data-tab="dashboard-tab">
+                <div class="ui container">
+                    <div class="ui stackable grid">
+                        <div class="four wide column">
+                            <div class="ui card">
+                                <div class="content">
+                                    <div class="header">
+                                        Pending Approval
+                                    </div>
+                                </div>
+
+                                <div class="content">
+                                    <div class="ui small horizontal statistic">
+                                        <div class="value">14</div>
+                                        <div class="label">Extensions</div>
+                                    </div>
+                                </div>
+
+                                <div class="content">
+                                    <div class="ui small horizontal statistic">
+                                        <div class="value">38</div>
+                                        <div class="label">Timesheets</div>
+                                    </div>
+                                </div>
+
+                                <div class="content">
+                                    <div class="ui small horizontal statistic">
+                                        <div class="value">9</div>
+                                        <div class="label">Expense Reports</div>
+                                    </div>
+                                </div>
+
+                                <div class="content">
+                                    <div class="ui small horizontal statistic">
+                                        <div class="value">3</div>
+                                        <div class="label">Statements of Work</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="four wide column">
+                            <div class="ui card">
+                                <div class="content">
+                                    <div class="header">
+                                        Recruitment
+                                    </div>
+                                </div>
+
+                                <div class="content">
+                                    <div class="ui small horizontal statistic">
+                                        <div class="value">2</div>
+                                        <div class="label">Pending Offers</div>
+                                    </div>
+                                </div>
+
+                                <div class="content">
+                                    <div class="ui small horizontal statistic">
+                                        <div class="value">5</div>
+                                        <div class="label">Interviews Awaiting Scheduling</div>
+                                    </div>
+                                </div>
+
+                                <div class="content">
+                                    <div class="ui small horizontal statistic">
+                                        <div class="value">4</div>
+                                        <div class="label">Candidates Awaiting Review</div>
+                                    </div>
+                                </div>
+
+                                <div class="content">
+                                    <div class="ui small horizontal statistic">
+                                        <div class="value">5</div>
+                                        <div class="label">Open Requisitions</div>
+                                    </div>
+                                </div>
+
+                                <div class="content">
+                                    <div class="ui small horizontal statistic">
+                                        <div class="value">1</div>
+                                        <div class="label">Requisition Pending Approval</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="eight wide column">
+                            <div class="ui fluid card">
+                                <div class="content">
+                                    <h3 class="ui header">Program Info</h3>
+                                </div>
+
+                                <div class="content">
+                                    <div class="ui fluid card">
+                                        <div class="content">
+                                            <h4 class="ui header">Admin Bulletins</h4>
+                                        </div>
+
+                                        <div class="content">
+                                            <div class="ui feed">
+                                                <div class="event">
+                                                    <span class="date">7/8/2016</span> &nbsp; &ndash; &nbsp;
+                                                    <span class="summary">New certification added for Safety Inspectors</span>
+                                                </div>
+
+                                                <div class="event">
+                                                    <span class="date">6/22/2016</span> &nbsp; &ndash; &nbsp;
+                                                    <span class="summary">Requirements change for all TCPL contractors</span>
+                                                </div>
+
+                                                <div class="event">
+                                                    <span class="date">6/4/2016</span>&nbsp; &ndash; &nbsp;
+                                                    <span class="summary">New recruitment procedures</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="ui fluid card">
+                                        <div class="content">
+                                            <h4 class="ui header">PMO Contact Info</h4>
+                                        </div>
+
+                                        <div class="content">
+                                            <p>If you experience any problems, you can contact our program team:</p>
+                                            <p>
+                                                Soandso Asdfson &ndash; (999) 999-9999 ext 999<br>
+                                                Suchandsuch Loremipsum &ndash; (111) 111-1111 ext 111
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sixteen wide column">
+                            <div class="ui fluid card">
+                                <div class="content">
+                                    <h3 class="ui header">Workforce</h3>
+                                </div>
+
+                                <div class="content ui grid">
+                                    <div class="four wide column">
+                                        <div class="ui card">
+                                            <div class="content">
+                                                <h4 class="header">
+                                                    Assignment Info
+                                                </h4>
+                                            </div>
+
+                                            <div class="content">
+                                                <div class="ui small horizontal statistic">
+                                                    <div class="value">5</div>
+                                                    <div class="label">Starting This Week</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="content">
+                                                <div class="ui small horizontal statistic">
+                                                    <div class="value">8</div>
+                                                    <div class="label">Starting Next Week</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="content">
+                                                <div class="ui small horizontal statistic">
+                                                    <div class="value">12</div>
+                                                    <div class="label">Approaching End Dates</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="six wide column">
+                                        <div class="ui fluid card">
+                                            <div class="content">
+                                                <h4 class="ui header">Contractor Usage</h4>
+                                            </div>
+
+                                            <div class="content">
+                                                <div id="chart-1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="six wide column">
+                                        <div class="ui fluid card">
+                                            <div class="ui header content">Overtime</div>
+
+                                            <div class="content">
+                                                <div id="chart-2"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui bottom attached segment tab" data-tab="transaction-queue-tab">
+                <button id="filter-button" class="ui left floated green right labeled icon button">
+                    Filter
+                    <i class="right caret icon"></i>
+                </button>
+
+                <div id="filter-modal" class="ui modal">
+                    <div class="header">
+                        Filter Options
+                    </div>
+
+                    <div class="content">
+                        <div class="ui form">
+                            <div class="ui equal width grid">
+                                <div class="column">
+                                    <div class="field">
+                                        <label>Filter Text:</label>
+                                        <input type="text">
+                                    </div>
+
+                                    <div class="grouped left floated fields">
+                                        <div class="field">
+                                            <div class="ui checkbox">
+                                                <input type="checkbox">
+                                                <label>Requisition</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="field">
+                                            <div class="ui checkbox">
+                                                <input type="checkbox">
+                                                <label>Timesheet</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="field">
+                                            <div class="ui checkbox">
+                                                <input type="checkbox">
+                                                <label>OPW</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="field">
+                                            <div class="ui checkbox">
+                                                <input type="checkbox">
+                                                <label>Expense</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="field">
+                                            <div class="ui checkbox">
+                                                <input type="checkbox">
+                                                <label>Assignment Extension</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="field">
+                                            <div class="ui checkbox">
+                                                <input type="checkbox">
+                                                <label>SOW</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="column">
+                                    <div class="field">
+                                        <label>From:</label>
+                                        <input type="date">
+                                    </div>
+                                </div>
+
+                                <div class="column">
+                                    <div class="field">
+                                        <label>To:</label>
+                                        <input type="date">
+                                    </div>
+
+                                    <button class="ui right floated inverted blue button">Clear Dates</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <div class="ui positive button">Apply</div>
+                        <div class="ui inverted blue button">Clear Filter</div>
+                        <div class="ui black deny button">Cancel</div>
+                    </div>
+                </div>
+
+                <div class="pagination-menu-container">
+                    1-20 of 113
+
+                    <div id="pagination-menu-top" class="ui tiny pagination menu">
+                        <a class="pagination-prev item">
+                            <i class="ui left caret icon"></i>
+                        </a>
+
+                        <a class="pagination-next item">
+                            <i class="ui right caret icon"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <br class="clear">
+
+                <div class="pagination-menu-container">
+                    <div class="ui tiny pagination menu">
+                        <a class="active item">1</a>
+                        <a class="item">2</a>
+                        <a class="item">3</a>
+                        <a class="item">4</a>
+                        <a class="item">5</a>
+                        <a class="item">6</a>
+                    </div>
+                </div>
+
+                <br class="clear">
+
+                <table id="transaction-queue" class="ui sortable single line celled selectable striped table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>User</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr class="bold">
+                            <td>Certification 15</td>
+                            <td>Lopez, Jeffrey</td>
+                            <td>Certifications for: Lopez, Jeffrey</td>
+                            <td class="warning">Submitted</td>
+                            <td>Jun 02</td>
+                        </tr>
+
+                        <tr>
+                            <td>Certification 299</td>
+                            <td>Scheidt, Robi</td>
+                            <td>Certifications for: Tschetter, Marie</td>
+                            <td class="positive">Approved</td>
+                            <td>May 24</td>
+                        </tr>
+
+                        <tr class="bold">
+                            <td>Certification 304</td>
+                            <td>Scheidt, Robi</td>
+                            <td>Certifications for: Alvarez, Pedro</td>
+                            <td class="positive">Approved</td>
+                            <td>May 24</td>
+                        </tr>
+
+                        <tr class="bold">
+                            <td>Requisition 2</td>
+                            <td>Clark, Joshua</td>
+                            <td>ENBR - General <span class="small">(Davis, Donnie)</span></td>
+                            <td class="warning">Submitted for Audit</td>
+                            <td>May 11</td>
+                        </tr>
+
+                        <tr>
+                            <td>Certification 306</td>
+                            <td>Scheidt, Robi</td>
+                            <td>Certifications for: Kelly, Trina</td>
+                            <td class="positive">Approved</td>
+                            <td>Apr 29</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>Certification 41</td>
+                            <td>Scheidt, Robi</td>
+                            <td>Certifications for: Bardoel, Brad</td>
+                            <td class="positive">Approved</td>
+                            <td>Apr 25</td>
+                        </tr>
+
+                        <tr>
+                            <td>Certification 309</td>
+                            <td>Scheidt, Robi</td>
+                            <td>Certifications for: DeWalt, Dennis</td>
+                            <td class="error">Rejected</td>
+                            <td>Mar 23</td>
+                        </tr>
+
+                        <tr>
+                            <td>Certification 302</td>
+                            <td>Clark, Joshua</td>
+                            <td>Certifications for: Ingram, Sean</td>
+                            <td class="positive">Approved</td>
+                            <td>Mar 23</td>
+                        </tr>
+
+                        <tr>
+                            <td>Certification 305</td>
+                            <td>Clark, Joshua</td>
+                            <td>Certifications for: Strain, Roger</td>
+                            <td class="positive">Approved</td>
+                            <td>Mar 23</td>
+                        </tr>
+
+                        <tr>
+                            <td>Certification 49</td>
+                            <td>Clark, Joshua</td>
+                            <td>Certifications for: Black, Craig</td>
+                            <td class="positive">Approved</td>
+                            <td>Mar 22</td>
+                        </tr>
+
+                        <tr class="bold">
+                            <td>Certification 298</td>
+                            <td>Scheidt, Robi</td>
+                            <td>Certifications for: Morgan, Brenda</td>
+                            <td class="error">Expired</td>
+                            <td>Mar 18</td>
+                        </tr>
+
+                        <tr>
+                            <td>Certification 280</td>
+                            <td>Scheidt, Robi</td>
+                            <td>Certifications for: Young, Brett</td>
+                            <td class="positive">Approved</td>
+                            <td>Mar 17</td>
+                        </tr>
+
+                        <tr>
+                            <td>Certification 47</td>
+                            <td>Scheidt, Robi</td>
+                            <td>Certifications for: Belanger, Billy</td>
+                            <td class="positive">Approved</td>
+                            <td>Mar 15</td>
+                        </tr>
+
+                        <tr>
+                            <td>Certification 86</td>
+                            <td>Ajayi, Marie</td>
+                            <td>Certifications for: Deibert, Lavern</td>
+                            <td class="positive">Approved</td>
+                            <td>Feb 29</td>
+                        </tr>
+
+                        <tr>
+                            <td>Certification 301</td>
+                            <td>Ajayi, Marie</td>
+                            <td>Certifications for: Marcine, Curtis</td>
+                            <td class="positive">Approved</td>
+                            <td>Feb 29</td>
+                        </tr>
+
+                        <tr>
+                            <td>Certification 282</td>
+                            <td>Scheidt, Robi</td>
+                            <td>Certifications for: Zack, Jesse</td>
+                            <td class="positive">Approved</td>
+                            <td>Feb 22</td>
+                        </tr>
+
+                        <tr>
+                            <td>Certification 182</td>
+                            <td>Ajayi, Marie</td>
+                            <td>Certifications for: Lynk, Jeff</td>
+                            <td class="warning">Expiring Soon</td>
+                            <td>Feb 18</td>
+                        </tr>
+
+                        <tr>
+                            <td>Certification 39</td>
+                            <td>Cowie, Michelle</td>
+                            <td>Certifications for: Bahr, Evan</td>
+                            <td class="positive">Approved</td>
+                            <td>Feb 18</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="pagination-menu-container">
+                    1-20 of 113
+
+                    <div id="pagination-menu-bottom" class="ui tiny pagination menu">
+                        <a class="pagination-prev item">
+                            <i class="ui left caret icon"></i>
+                        </a>
+
+                        <a class="pagination-next item">
+                            <i class="ui right caret icon"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <br class="clear">
+
+                <div class="pagination-menu-container">
+                    <div class="ui tiny pagination menu">
+                        <a class="active item">1</a>
+                        <a class="item">2</a>
+                        <a class="item">3</a>
+                        <a class="item">4</a>
+                        <a class="item">5</a>
+                        <a class="item">6</a>
+                    </div>
+                </div>
+
+                <br class="clear">
+            </div>
+
+            <div class="ui bottom attached segment tab" data-tab="priority-tab">
+                <p>This is the priority tab.</p>
+            </div>
+
+            <div class="ui bottom attached segment tab" data-tab="create-tab">
+                <form>
+                    <label>Name:</label>
+                    <input>
+
+                    <br><br>
+
+                    <label>Type:</label>
+                    <select>
+                        <option>Type 1</option>
+                        <option>Type 2</option>
+                        <option>Type 3</option>
+                        <option>Type 4</option>
+                    </select>
+                </form>
+            </div>
+        </div>
+
+        <div id="footer" class="ui vertical footer segment">
+            <div class="ui stackable grid">
+
+                <div class="four wide column">
+                    <div id="system-logo">
+                        <img src="assets/images/logos/cdi_logo.png" width="170" height="48" style="background-color: #e7e5e5;">
+                    </div>
+
+                    <div id="system-menu" class="ui custom popup top left transition hidden">
+                        <img src="assets/images/logos/congruent_talent.png"><br>
+                        <img src="assets/images/logos/parker_logo.png"><br>
+                        <img src="assets/images/logos/se_logo.png"><br>
+                        <img src="assets/images/logos/demo_logo.png"><br>
+                        <img src="assets/images/logos/logo_williams.png">
+                    </div>
+
+                    <script>
+                        $(function() {
+                            $('#system-logo').popup({
+                                popup: $('#system-menu'),
+                                on: 'click'
+                            });
+                        });
+                    </script>
+
+                    <div id="logged-in-user">
+                        Logged in as: Clark, Joshua
+                    </div>
+                </div>
+
+                <div class="four wide column"></div>
+                <div class="four wide column"></div>
+                <div id="footer-info-container" class="four wide column">
+                    <p id="footer-info">
+                        &copy; 2016 LiquidMedium&trade;<br>
+                        A product of <a href="https://www.cdicorp.com" target="_blank">CDI Corporation</a><br>
+                        Page generated in 0.0002384 sec
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

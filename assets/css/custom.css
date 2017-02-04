@@ -1,0 +1,314 @@
+#login-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+    background-color: #daeffb;
+}
+
+#login-wrapper .row {
+    padding: 0;
+}
+
+#login-logo {
+    padding: 15px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    background-color: #1786bd;
+}
+
+#login {
+    padding-bottom: 20px;
+    border: 1px solid #1786bd;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+
+    background-color: white;
+}
+
+#login-form {
+    margin-top: 20px;
+}
+
+#forgot-password {
+    float: left;
+}
+
+
+
+
+
+#nav {
+    background-color: #1786bd;
+}
+
+#liquid-logo {
+    display: block;
+    width: 235px;
+    height: 35px;
+    background: top left url('../images/logos/liquidmedium.png');
+
+    text-indent: -9999px;
+    overflow: hidden;
+}
+
+.ui.menu .item > i.icon,
+.ui.menu hr {
+    margin: 0;
+}
+
+.ui.menu .item > i.icon:not(.dropdown.icon) {
+    color: #e7e5e5;
+}
+
+.ui.item, .ui.item.active {
+    color: #e7e5e5 !important;
+}
+
+.ui.menu .ui.dropdown .menu > .item:hover,
+.ui.menu .ui.dropdown .menu > .selected.item {
+    background: #e6f0fe !important;
+}
+
+
+
+.ui.radio.checkbox {
+    padding-left: 15px;
+}
+
+
+
+#quick-nav {
+    color: #e7e5e5;
+    text-align: center;
+    /*font-size: 12px;*/
+}
+
+#quick-nav li {
+    display: inline-block;
+}
+
+#quick-nav .item {
+    display: block;
+    height: 100%;
+    text-align: center;
+    color: #e7e5e5;
+}
+
+#quick-nav i {
+    color: #e7e5e5;
+    text-shadow: 0 1px 1px black;
+}
+
+.quick-nav-label {
+    margin-top: 5px;
+    font-size: .9em;
+}
+
+#signout-link {
+    border-left: 1px solid #e7e5e5;
+}
+
+
+
+#content {
+    margin: 20px;
+}
+
+.statistic .label {
+    text-transform: none !important;
+}
+
+.ui.tabular.menu .item {
+    margin-right: 2px;
+}
+
+.ui.tabular.menu .item:not(.active) {
+    border-radius: 2px 2px 0 0;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.menu hr {
+    border-top-width: 0;
+    border-color: rgba(34, 36, 38, 0.14902);
+}
+
+
+
+#content {
+    padding-bottom: 140px;
+}
+
+.pagination-menu-container {
+    float: right;
+    margin-bottom: 10px;
+}
+
+#pagination-menu-top,
+#pagination-menu-bottom {
+    margin-left: 5px;
+}
+
+
+
+#req-wizard-steps-2 {
+    counter-reset: ordered +5;
+}
+
+
+
+.ui.five.steps > .step:not(:nth-child(5)) {
+    max-width: 20%;
+}
+
+.ui.ordered.steps .step > * {
+    width: 100%;
+}
+
+.ui.steps .step:last-child {
+    border-right: inherit;
+    border-radius: 0 !important;
+}
+
+#save-template-button {
+    padding-right: 0;
+}
+
+.ui.checkbox > label {
+    cursor: pointer;
+}
+
+
+
+td > .ui.green.checkmark.icon {
+    margin-left: 12px;
+}
+
+
+
+#timesheet-attach-button {
+    margin-top: 10px;
+}
+
+
+
+
+
+tr.status:hover {
+    cursor: pointer;
+}
+
+.status.expired,
+.status.expiring,
+.status.missing {
+    font-weight: bold;
+}
+
+.status-marker {
+    width: 12px;
+    max-width: 12px;
+}
+
+.status:not(:last-child) > .status-marker {
+    border-bottom: 1px solid white;
+}
+
+.status.expired > .status-marker,
+.status.expiring > .status-marker {
+    background-color: red;
+}
+
+.status.missing > .status-marker {
+    background-color: darkred;
+}
+
+.status.approved > .status-marker {
+    background-color: darkgreen;
+}
+
+.shadowed.icon {
+    text-shadow: 0 0 3px black;
+}
+
+
+
+
+
+
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 20px solid white;
+    padding: 20px;
+    background-color: #126791;
+}
+
+#footer a {
+    color: #e7e5e5;
+    text-decoration: underline;
+}
+
+#footer a:hover {
+    color: white;
+}
+
+#menu {
+    margin-bottom: 5px;
+    max-width: 200px;
+}
+
+#logged-in-user {
+    margin: 0;
+    color: #e7e5e5;
+}
+
+#footer-info {
+    width: 100%;
+    color: #e7e5e5;
+    text-align: right;
+}
+
+
+
+
+.hidden {
+    display: none;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.clear {
+    clear: both;
+}
+
+
+
+
+
+
+
+
+
+
+/* LOW-RES DESKTOP/LAPTOP ENHANCEMENTS */
+
+@media (max-width: 1366px) {
+    #content {
+        padding-bottom: 0;
+    }
+
+    .ui.five.steps > .step {
+        padding-top: .55em;
+        padding-bottom: .55em;
+    }
+
+    #footer {
+        position: static;
+    }
+}

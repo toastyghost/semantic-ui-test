@@ -1,0 +1,854 @@
+<!doctype html>
+<html charset="utf-8" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Semantic UI Test</title>
+        <meta name="description" content="">
+
+        <!-- jQuery -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+        <!-- Tablesort plugin -->
+        <script src="bower_components/jquery-tablesort/jquery.tablesort.min.js"></script>
+
+        <!-- Semantic UI -->
+        <link rel="stylesheet" href="bower_components/semantic/dist/semantic.min.css">
+        <script src="bower_components/semantic/dist/semantic.min.js"></script>
+
+        <!-- C3/D3 (charts) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.css">
+        <script src="https://d3js.org/d3.v3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.js"></script>
+
+        <!-- Custom -->
+        <link rel="stylesheet" href="assets/css/custom.css">
+        <script src="assets/js/custom.js"></script>
+    </head>
+
+    <body>
+        <div id="nav" class="ui large attached stackable borderless compact menu">
+            <div id="logo" class="item">
+                <h1 id="liquid-logo">LiquidMedium</h1>
+            </div>
+
+            <div class="item">
+                <a class="ui simple item">Dashboard</a>
+
+                <div class="ui simple dropdown item">
+                    Create
+
+                    <div class="menu">
+                        <div class="ui simple dropdown item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">Requisition</span>
+
+                            <div class="menu">
+                                <a class="item">Blank</a>
+
+                                <hr>
+
+                                <div class="item">Template 1</div>
+                                <div class="item">Template 2</div>
+                                <div class="item">Template 3</div>
+                            </div>
+                        </div>
+
+                        <a class="item">Candidate</a>
+                        <a class="item">Assignment</a>
+
+                        <!--<hr>
+
+                        <a class="item">Timesheet</a>
+                        <a class="item">Expense</a>
+                        <a class="item">OPW</a>-->
+
+                        <hr>
+
+                        <a class="item">Batch Timesheet</a>
+                        <a class="item">Batch Expense</a>
+                        <a class="item">Batch OPW</a>
+                    </div>
+                </div>
+
+                <div class="ui simple dropdown item">
+                    Manage
+
+                    <div class="menu">
+                        <a class="item">Workforce</a>
+                        <a class="item">Certifications</a>
+                        <a class="item">Forms</a>
+                        <a class="item">Links</a>
+
+                        <hr>
+
+                        <a class="item">Candidates</a>
+                        <a class="item">Assignments</a>
+                        <a class="item">Certifications</a>
+
+                        <hr>
+
+                        <div class="ui simple dropdown item">
+                            <i class="dropdown icon"></i>
+                            Audit
+
+                            <div class="menu">
+                                <a class="item">Timesheet</a>
+                                <a class="item">Expense</a>
+                                <a class="item">OPW</a>
+                            </div>
+                        </div>
+
+                        <div class="ui simple dropdown item">
+                            <i class="dropdown icon"></i>
+                            Financial
+
+                            <div class="menu">
+                                <a class="item">Invoicing</a>
+                                <a class="item">Pay/Bill</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui simple dropdown item">
+                    Reports
+
+                    <div class="menu">
+                        <div class="ui simple dropdown item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">Assignment</span>
+
+                            <div class="menu">
+                                <a class="item">Active Assignments</a>
+                                <a class="item">Available Candidates</a>
+                            </div>
+                        </div>
+
+                        <div class="ui simple dropdown item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">Certifications</span>
+
+                            <div class="menu">
+                                <a class="item">Upcoming Expirations</a>
+                                <a class="item">Contractor Compliance</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui simple dropdown item">
+                    System
+
+                    <div class="menu">
+                        <a class="item">Compass</a>
+                        <a class="item">Accounts</a>
+                        <a class="item">Browser Compatibility</a>
+
+                        <div class="ui simple dropdown item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">Data Maintenance</span>
+
+                            <div class="menu">
+                                <a class="item">Jobs</a>
+                                <a class="item">Locations</a>
+                                <a class="item">Cost Centers</a>
+                                <a class="item">Data Types</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ul id="quick-nav" class="simple right menu columns">
+                <li>
+                    <a class="item">
+                        <i class="large user icon"></i>
+                        <div class="quick-nav-label">User</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="item">
+                        <i class="large mail outline icon"></i>
+                        <div class="quick-nav-label">Mail</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="item">
+                        <i class="large help icon"></i>
+                        <div class="quick-nav-label">Help</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="item" id="signout-link">
+                        <i class="large sign out icon"></i>
+                        <div class="quick-nav-label">Exit</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div id="content" class="ui container">
+
+            <h2 class="ui left floated header">Jobs</h2>
+
+            <button id="add-job-button" class="ui right floated green button">Add</button>
+
+            <div id="job-modal" class="ui modal">
+                <div class="header">Add Job</div>
+                <div class="content">
+                    <form class="ui form">
+                        <div class="field">
+                            <label>Test</label>
+                            <input type="text">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <br class="clear">
+
+            <table class="ui sortable table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th class="sorted ascending">Job Title</th>
+                        <th>Pay Rate Low</th>
+                        <th>Pay Rate High</th>
+                        <th>Bill Rate Low</th>
+                        <th>Bill Rate High</th>
+                        <th class="no-sort"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td>ENBR - ACM</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>ENBR - Chief Inspector</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>ENBR - Civil Inspector</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>ENBR - CM</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>ENBR - Coating Inspector</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>ENBR - Electrical Inspector</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>ENBR - Environmental Inspector</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>ENBR - Field Construction Analyst</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>ENBR - Field Office Clerk</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>ENBR - General</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>ENBR - General Inspector</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>ENBR - QA/QC Coordinator</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>ENBR - Quality Surveillance Inspector</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>ENBR - Safety Inspector</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>ENBR - Site Coordinator</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>ENBR - Tank Inspector</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>ENBR - Welding Inspector</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>TCPL - ACM</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>TCPL - ACM/Environmental</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>TCPL - Assistant Superintendent</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>TCPL - Civil Inspector</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>TCPL - Clerk</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>TCPL - CM</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>TCPL - Coating</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>TCPL - Coating Inspector</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>TCPL - Coating/General</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>TCPL - Electrical</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>TCPL - Electrical Inspector</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>TCPL - Environmental Inspector</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>TCPL - Field</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>TCPL - General</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>TCPL - General Inspector</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>TCPL - Production Operator</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>TCPL - Project Manager</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>TCPL - Quality Assurance</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>TCPL - Safety Inspector</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>TCPL - Sr. Welding</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>TCPL - Welding</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>TCPL - Welding Inspector</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>TCPL - Welding/General</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>UNGC - Civil Inspector</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>UNGC - Coating Inspector</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>UNGC - Document Control</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>UNGC - Electrical Inspector</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>UNGC - General Inspector</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>UNGC - Inspector</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>UNGC - Project Coordinator</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>UNGC - Welding Inspector</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>
+                            <button class="ui tiny inverted right floated red button">Delete</button>
+                            <button class="ui tiny inverted right floated blue button">Edit</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div id="footer" class="ui vertical footer segment">
+            <div class="ui stackable grid">
+
+                <div class="four wide column">
+                    <div id="system-logo">
+                        <img src="assets/images/logos/cdi_logo.png" width="170" height="48" style="background-color: #e7e5e5;">
+                    </div>
+
+                    <div id="system-menu" class="ui custom popup top left transition hidden">
+                        <img src="assets/images/logos/congruent_talent.png"><br>
+                        <img src="assets/images/logos/parker_logo.png"><br>
+                        <img src="assets/images/logos/se_logo.png"><br>
+                        <img src="assets/images/logos/demo_logo.png"><br>
+                        <img src="assets/images/logos/logo_williams.png">
+                    </div>
+
+                    <script>
+                        $(function() {
+                            $('#system-logo').popup({
+                                popup: $('#system-menu'),
+                                on: 'click'
+                            });
+                        });
+                    </script>
+
+                    <div id="logged-in-user">
+                        Logged in as: Clark, Joshua
+                    </div>
+                </div>
+
+                <div class="four wide column"></div>
+                <div class="four wide column"></div>
+                <div id="footer-info-container" class="four wide column">
+                    <p id="footer-info">
+                        &copy; 2016 LiquidMedium&trade;<br>
+                        A product of <a href="https://www.cdicorp.com" target="_blank">CDI Corporation</a><br>
+                        Page generated in 0.0002384 sec
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

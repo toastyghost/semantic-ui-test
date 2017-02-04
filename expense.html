@@ -1,0 +1,783 @@
+<!doctype html>
+<html charset="utf-8" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Semantic UI Test</title>
+        <meta name="description" content="">
+
+        <!-- jQuery -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+        <!-- Tablesort plugin -->
+        <script src="bower_components/jquery-tablesort/jquery.tablesort.min.js"></script>
+
+        <!-- Semantic UI -->
+        <link rel="stylesheet" href="bower_components/semantic/dist/semantic.min.css">
+        <script src="bower_components/semantic/dist/semantic.min.js"></script>
+
+        <!-- C3/D3 (charts) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.css">
+        <script src="https://d3js.org/d3.v3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.js"></script>
+
+        <!-- Custom -->
+        <link rel="stylesheet" href="assets/css/custom.css">
+        <script src="assets/js/custom.js"></script>
+    </head>
+
+    <body>
+        <div id="nav" class="ui large attached stackable borderless compact menu">
+            <div id="logo" class="item">
+                <h1 id="liquid-logo">LiquidMedium</h1>
+            </div>
+
+            <div class="item">
+                <a class="ui simple item">Dashboard</a>
+
+                <div class="ui simple dropdown item">
+                    Create
+
+                    <div class="menu">
+                        <div class="ui simple dropdown item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">Requisition</span>
+
+                            <div class="menu">
+                                <a class="item">Blank</a>
+
+                                <hr>
+
+                                <div class="item">Template 1</div>
+                                <div class="item">Template 2</div>
+                                <div class="item">Template 3</div>
+                            </div>
+                        </div>
+
+                        <a class="item">Candidate</a>
+                        <a class="item">Assignment</a>
+
+                        <!--<hr>
+
+                        <a class="item">Timesheet</a>
+                        <a class="item">Expense</a>
+                        <a class="item">OPW</a>-->
+
+                        <hr>
+
+                        <a class="item">Batch Timesheet</a>
+                        <a class="item">Batch Expense</a>
+                        <a class="item">Batch OPW</a>
+                    </div>
+                </div>
+
+                <div class="ui simple dropdown item">
+                    Manage
+
+                    <div class="menu">
+                        <a class="item">Workforce</a>
+                        <a class="item">Certifications</a>
+                        <a class="item">Forms</a>
+                        <a class="item">Links</a>
+
+                        <hr>
+
+                        <a class="item">Candidates</a>
+                        <a class="item">Assignments</a>
+                        <a class="item">Certifications</a>
+
+                        <hr>
+
+                        <div class="ui simple dropdown item">
+                            <i class="dropdown icon"></i>
+                            Audit
+
+                            <div class="menu">
+                                <a class="item">Timesheet</a>
+                                <a class="item">Expense</a>
+                                <a class="item">OPW</a>
+                            </div>
+                        </div>
+
+                        <div class="ui simple dropdown item">
+                            <i class="dropdown icon"></i>
+                            Financial
+
+                            <div class="menu">
+                                <a class="item">Invoicing</a>
+                                <a class="item">Pay/Bill</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui simple dropdown item">
+                    Reports
+
+                    <div class="menu">
+                        <div class="ui simple dropdown item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">Assignment</span>
+
+                            <div class="menu">
+                                <a class="item">Active Assignments</a>
+                                <a class="item">Available Candidates</a>
+                            </div>
+                        </div>
+
+                        <div class="ui simple dropdown item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">Certifications</span>
+
+                            <div class="menu">
+                                <a class="item">Upcoming Expirations</a>
+                                <a class="item">Contractor Compliance</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui simple dropdown item">
+                    System
+
+                    <div class="menu">
+                        <a class="item">Compass</a>
+                        <a class="item">Accounts</a>
+                        <a class="item">Browser Compatibility</a>
+
+                        <div class="ui simple dropdown item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">Data Maintenance</span>
+
+                            <div class="menu">
+                                <a class="item">Jobs</a>
+                                <a class="item">Locations</a>
+                                <a class="item">Cost Centers</a>
+                                <a class="item">Data Types</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ul id="quick-nav" class="simple right menu columns">
+                <li>
+                    <a class="item">
+                        <i class="large user icon"></i>
+                        <div class="quick-nav-label">User</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="item">
+                        <i class="large mail outline icon"></i>
+                        <div class="quick-nav-label">Mail</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="item">
+                        <i class="large help icon"></i>
+                        <div class="quick-nav-label">Help</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="item" id="signout-link">
+                        <i class="large sign out icon"></i>
+                        <div class="quick-nav-label">Exit</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div id="content" class="ui container">
+
+            <h3>Expense Entry</h3>
+
+            <div>
+                <strong>Name:</strong> Creamcheese, Suzy<br>
+                <strong>Week Ending Date:</strong> 12/18/2016<br>
+                <strong>Expense Approver:</strong> Clark, Joshua
+            </div>
+
+            <br>
+
+            <div class="ui accordion">
+                <div class="title">
+                    <h4>
+                        <i class="dropdown icon"></i>
+                        Assignment Details
+                    </h4>
+                </div>
+
+                <div class="content">
+                    <table class="ui single line compact stackable celled striped table">
+                        <tr>
+                            <td class="eight wide"><strong>Division:</strong> Applied Sciences</td>
+                            <td><strong>AERO Use Only (CC):</strong> -</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Department:</strong> Finance</td>
+                            <td><strong>Clock Number:</strong> 7</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Purchase Order:</strong> 7892347</td>
+                            <td><strong>Work Order:</strong> 2198342</td>
+                        </tr>
+                    </table>
+
+                    <table class="ui single line compact stackable celled striped table">
+                        <tr>
+                            <td class="eight wide"><strong>Assignment ID:</strong> 49</td>
+                            <td><strong>CDI Employee ID:</strong> 2902384832</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Start Date:</strong> 12/10/2016</td>
+                            <td><strong>End Date:</strong> 12/13/2017</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Schedule Type:</strong> Full-time</td>
+                            <td><strong>Schedule Length:</strong> 7</td>
+                        </tr>
+                    </table>
+
+                    <table class="ui single line compact stackable celled striped table">
+                        <tr>
+                            <td class="eight wide"><strong>Expense ID:</strong> 291</td>
+                            <td><strong>Paybilled:</strong> 12/14/2016</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Status:</strong> New</td>
+                            <td><strong>Invoiced:</strong> 12/18/2016</td>
+                        </tr>
+                    </table>
+
+                    <br>
+                </div>
+            </div>
+
+            <div class="ui top attached tabular menu">
+                <a class="active item" data-tab="expense-form-tab">Expense Form</a>
+                <a class="item" data-tab="activity-report-tab">Activity Report</a>
+                <a class="item" data-tab="travel-breakdown-tab">Travel Breakdown</a>
+            </div>
+
+            <div class="ui active bottom attached segment tab" data-tab="expense-form-tab">
+
+                <table id="expense-table" class="ui single line compact stackable striped table">
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Type</th>
+                            <th>Amount Paid by Co.</th>
+                            <th>Amount Paid by Emp.</th>
+                            <th>Total</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr class="expense-row" data-row="1">
+                            <td>Mon 12/12</td>
+                            <td>Air/Rail/Bus - Company Paid</td>
+                            <td>$59.00</td>
+                            <td>$0.00</td>
+                            <td>$59.00</td>
+
+                            <td>
+                                <div class="ui right aligned">
+                                    <button class="edit-button ui tiny inverted blue button" data-row="1">Edit</button>
+                                    <button class="delete-button ui tiny inverted red button" data-row="1">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr class="expense-row" data-row="2">
+                            <td>Mon 12/12</td>
+                            <td>Lunch</td>
+                            <td>$22.21</td>
+                            <td>$0.00</td>
+                            <td>$22.21</td>
+
+                            <td>
+                                <div class="ui right aligned">
+                                    <button class="edit-button ui tiny inverted blue button" data-row="2">Edit</button>
+                                    <button class="delete-button ui tiny inverted red button" data-row="2">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr class="expense-row" data-row="3">
+                            <td>Mon 12/12</td>
+                            <td>Dinner</td>
+                            <td>$34.27</td>
+                            <td>$0.00</td>
+                            <td>$34.27</td>
+
+                            <td>
+                                <div class="ui right aligned">
+                                    <button class="edit-button ui tiny inverted blue button" data-row="3">Edit</button>
+                                    <button class="delete-button ui tiny inverted red button" data-row="3">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr class="transparent expense-row" data-row="total">
+                            <td></td>
+                            <td class="ui right aligned"><strong>Totals:</strong></td>
+                            <td><strong>$115.48</strong></td>
+                            <td><strong>$0.00</strong></td>
+                            <td colspan="2"><strong>$115.48</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button id="expense-add-row" class="ui small green button">Add Expense</button>
+
+                <div class="ui divider"></div>
+
+                <div id="info-section">
+                    <h4>Other Info</h4>
+
+                    <form class="ui form">
+                        <div class="two fields">
+                            <div class="field">
+                                <label>Total Bill Amount</label>
+                                <input type="number" disabled>
+                            </div>
+
+                            <div class="field">
+                                <label>Travel Advance</label>
+                                <input type="number">
+                            </div>
+                        </div>
+
+                        <div class="four fields">
+                            <div class="field">
+                                <label>Project Number</label>
+                                <input type="text">
+                            </div>
+
+                            <div class="field">
+                                <label>Task</label>
+                                <input type="text">
+                            </div>
+
+                            <div class="field">
+                                <label>Amount</label>
+                                <input type="number">
+                            </div>
+
+                            <div class="field">
+                                <label>Amount Owed Company</label>
+                                <input type="number" disabled>
+                            </div>
+                        </div>
+
+                        <div class="four fields">
+                            <div class="field">
+                                <label>Project Number</label>
+                                <input type="text">
+                            </div>
+
+                            <div class="field">
+                                <label>Task</label>
+                                <input type="text">
+                            </div>
+
+                            <div class="field">
+                                <label>Amount</label>
+                                <input type="number">
+                            </div>
+
+                            <div class="field">
+                                <label>Amount Owed Employee</label>
+                                <input type="number" disabled>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label>Nature of Business</label>
+                            <textarea></textarea>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="ui divider"></div>
+
+                <div id="attachments-section" class="ui section">
+                    <h4>Attachments</h4>
+
+                    <table class="ui small compact collapsing table">
+                        <thead>
+                            <tr>
+                                <th>Filename</th>
+                                <th>Type</th>
+                                <th colspan="2">Size</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>SCAN103913.JPEG</td>
+                                <td><a id="show-upload-dialog" href="javascript://">Dinner Receipt</a></td>
+                                <td>38.7KB</td>
+
+                                <td class="ui right aligned">
+                                    <button class="ui tiny inverted red button">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <button id="timesheet-attach-button" class="ui tiny inverted green button">Add File</button>
+
+                <div id="upload-modal" class="ui small modal">
+                    <div class="header">Upload Preview</div>
+
+                    <div class="content">
+                        <img class="image" src="assets/images/uploads/dinner-receipt.jpg">
+                        <em>dinner-receipt.jpg</em>
+                    </div>
+
+                    <div class="actions">
+                        <button class="ui positive button">OK</button>
+                    </div>
+                </div>
+
+                <div id="expense-modal" class="ui small modal">
+                    <div class="header">Add Expense</div>
+
+                    <div class="content">
+                        <form class="ui form">
+                            <div class="required field">
+                                <label>Day</label>
+                                <select class="ui dropdown">
+                                    <option>Mon 12/12</option>
+                                    <option>Tue 12/13</option>
+                                    <option>Wed 12/14</option>
+                                    <option>Thu 12/15</option>
+                                    <option>Fri 12/16</option>
+                                    <option>Sat 12/17</option>
+                                    <option>Sun 12/18</option>
+                                </select>
+                            </div>
+
+                            <div class="required field">
+                                <label>Type</label>
+                                <select class="ui dropdown">
+                                    <option>Air/Rail/Bus - Company Paid</option>
+                                    <option>Air/Rail/Bus - Employee Paid</option>
+                                    <option>Auto Rental - Company Paid</option>
+                                    <option>Auto Rental - Employee Paid</option>
+                                    <option>Breakfast</option>
+                                    <option>Dinner</option>
+                                    <option>Entertainment Overhead</option>
+                                    <option>Gas</option>
+                                    <option>Lodging - Company Paid</option>
+                                    <option>Lodging - Employee Paid</option>
+                                    <option>Lunch</option>
+                                    <option>Mileage</option>
+                                    <option>Other/Miscellaneous</option>
+                                    <option>Per Diem</option>
+                                    <option>Phone (Including Cell)</option>
+                                    <option>Taxi/Parking/Tolls</option>
+                                    <option>Wireless Devices</option>
+                                </select>
+                            </div>
+
+                            <div class="required field">
+                                <label>Amount Paid by Co.</label>
+                                <input class="ui input" type="number">
+                            </div>
+
+                            <div class="required field">
+                                <label>Amount Paid by Emp.</label>
+                                <input class="ui input" type="number">
+                            </div>
+
+                            <div class="disabled field">
+                                <label>Total</label>
+                                <input class="ui input" type="number">
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="actions">
+                        <div class="ui positive button">Submit</div>
+                        <div class="ui black deny button">Cancel</div>
+                    </div>
+                </div>
+
+
+                <div id="delete-row-modal" class="ui small modal">
+                    <div class="header">Confirm Delete</div>
+                    <div class="content">Are you sure you want to delete this item from the expense report?</div>
+                    <div class="actions">
+                        <button class="ui green ok button">Yes</button>
+                        <button class="ui red cancel button">No</button>
+                    </div>
+                </div>
+
+                <div id="attach-modal" class="ui small modal">
+                    <div class="header">Add Attachment</div>
+                    <div class="content">
+                        Please click "Browse" and select the file you wish to upload, then click the "Upload" button.
+
+                        <div class="ui divider"></div>
+
+                        <div class="field">
+                            <input type="file" class="ui input">
+                        </div>
+
+                        <div class="ui divider"></div>
+
+                        <select class="ui selection dropdown">
+                            <option>Paper Timesheet</option>
+                        </select>
+
+                        <button class="ui inverted green button">Upload</button>
+                    </div>
+                </div>
+
+                <div id="save-confirm-modal" class="ui small modal">
+                    <div class="content">
+                        Timesheet was successfully saved.
+                    </div>
+                </div>
+
+                <div id="submit-confirm-modal" class="ui small modal">
+                    <div class="content">
+                        Timesheet was successfully submitted.
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui bottom attached segment tab" data-tab="activity-report-tab">
+                <form class="ui form">
+                    <div class="four fields">
+                        <div class="field">
+                            <label>Mon 12/12</label>
+                            <textarea></textarea>
+                        </div>
+
+                        <div class="field">
+                            <label>Tue 12/13</label>
+                            <textarea></textarea>
+                        </div>
+
+                        <div class="field">
+                            <label>Wed 12/14</label>
+                            <textarea></textarea>
+                        </div>
+
+                        <div class="field">
+                            <label>Thu 12/15</label>
+                            <textarea></textarea>
+                        </div>
+                    </div>
+
+                    <div class="four fields">
+                        <div class="field">
+                            <label>Fri 12/16</label>
+                            <textarea></textarea>
+                        </div>
+
+                        <div class="field">
+                            <label>Sat 12/17</label>
+                            <textarea></textarea>
+                        </div>
+
+                        <div class="field">
+                            <label>Sun 12/18</label>
+                            <textarea></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="ui bottom attached segment tab" data-tab="travel-breakdown-tab">
+                <table id="travel-table" class="ui single line compact stackable striped table">
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Auto Miles</th>
+                            <th>Air Miles</th>
+                            <th>Trip Purpose</th>
+                            <th>Amount</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr class="travel-row" data-row="1">
+                            <td>Mon 12/12</td>
+                            <td>Albuquerque NM</td>
+                            <td>Sarasota FL</td>
+                            <td>47</td>
+                            <td>593</td>
+                            <td>Get to meeting</td>
+                            <td>$639.42</td>
+
+                            <td>
+                                <div class="ui right aligned">
+                                    <button class="edit-button ui tiny inverted blue button" data-row="1">Edit</button>
+                                    <button class="delete-button ui tiny inverted red button" data-row="1">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr class="travel-row" data-row="2">
+                            <td>Wed 12/14</td>
+                            <td>Sarasota FL</td>
+                            <td>Philadelphia PA</td>
+                            <td>22</td>
+                            <td>861</td>
+                            <td>Present findings</td>
+                            <td>$458.93</td>
+
+                            <td>
+                                <div class="ui right aligned">
+                                    <button class="edit-button ui tiny inverted blue button" data-row="1">Edit</button>
+                                    <button class="delete-button ui tiny inverted red button" data-row="1">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr class="travel-row" data-row="3">
+                            <td>Sat 12/17</td>
+                            <td>Philadelphia PA</td>
+                            <td>Albuquerque NM</td>
+                            <td>21</td>
+                            <td>2357</td>
+                            <td>Return home</td>
+                            <td>$597.58</td>
+
+                            <td>
+                                <div class="ui right aligned">
+                                    <button class="edit-button ui tiny inverted blue button" data-row="1">Edit</button>
+                                    <button class="delete-button ui tiny inverted red button" data-row="1">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr class="transparent travel-row" data-row="total">
+                            <td colspan="5"></td>
+                            <td class="ui right aligned"><strong>Total:</strong></td>
+                            <td colspan="2"><strong>$1,695.93</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button id="travel-add-row" class="ui small green button">Add Trip</button>
+
+                <div id="travel-modal" class="ui small modal">
+                    <div class="header">Add Trip</div>
+
+                    <div class="content">
+                        <form class="ui form">
+                            <div class="two fields">
+                                <div class="required field">
+                                    <label>From</label>
+                                    <input type="text">
+                                </div>
+
+                                <div class="required field">
+                                    <label>To</label>
+                                    <input type="text">
+                                </div>
+                            </div>
+
+                            <div class="two fields">
+                                <div class="field">
+                                    <label>Auto Miles</label>
+                                    <input type="number">
+                                </div>
+
+                                <div class="field">
+                                    <label>Air Miles</label>
+                                    <input type="number">
+                                </div>
+                            </div>
+
+                            <div class="required field">
+                                <label>Trip Purpose</label>
+                                <input type="text">
+                            </div>
+
+                            <div class="required field">
+                                <label>Amount</label>
+                                <input type="number">
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="actions">
+                        <div class="ui positive button">Submit</div>
+                        <div class="ui black deny button">Cancel</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button id="expense-save-button" class="ui blue button">Save</button>
+                <button id="expense-submit-button" class="ui green button">Submit</button>
+            </div>
+
+        </div>
+
+        <div id="footer" class="ui vertical footer segment">
+            <div class="ui stackable grid">
+
+                <div class="four wide column">
+                    <div id="system-logo">
+                        <img src="assets/images/logos/cdi_logo.png" width="170" height="48" style="background-color: #e7e5e5;">
+                    </div>
+
+                    <div id="system-menu" class="ui custom popup top left transition hidden">
+                        <img src="assets/images/logos/congruent_talent.png"><br>
+                        <img src="assets/images/logos/parker_logo.png"><br>
+                        <img src="assets/images/logos/se_logo.png"><br>
+                        <img src="assets/images/logos/demo_logo.png"><br>
+                        <img src="assets/images/logos/logo_williams.png">
+                    </div>
+
+                    <script>
+                        $(function() {
+                            $('#system-logo').popup({
+                                popup: $('#system-menu'),
+                                on: 'click'
+                            });
+                        });
+                    </script>
+
+                    <div id="logged-in-user">
+                        Logged in as: Clark, Joshua
+                    </div>
+                </div>
+
+                <div class="four wide column"></div>
+                <div class="four wide column"></div>
+                <div id="footer-info-container" class="four wide column">
+                    <p id="footer-info">
+                        &copy; 2016 LiquidMedium&trade;<br>
+                        A product of <a href="https://www.cdicorp.com" target="_blank">CDI Corporation</a><br>
+                        Page generated in 0.0002384 sec
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

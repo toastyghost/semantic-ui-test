@@ -1,0 +1,1817 @@
+<!doctype html>
+<html charset="utf-8" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Semantic UI Test</title>
+        <meta name="description" content="">
+
+        <!-- jQuery -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+        <!-- Semantic UI -->
+        <link rel="stylesheet" href="bower_components/semantic/dist/semantic.min.css">
+        <script src="bower_components/semantic/dist/semantic.min.js"></script>
+
+        <!-- C3/D3 (charts) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.css">
+        <script src="https://d3js.org/d3.v3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.js"></script>
+
+        <!-- Custom -->
+        <link rel="stylesheet" href="assets/css/custom.css">
+        <script src="assets/js/custom.js"></script>
+    </head>
+
+    <body>
+        <div id="nav" class="ui large attached stackable borderless compact menu">
+            <div id="logo" class="item">
+                <h1 id="liquid-logo">LiquidMedium</h1>
+            </div>
+
+            <div class="item">
+                <a class="ui simple item">Dashboard</a>
+
+                <div class="ui simple dropdown item">
+                    Create
+
+                    <div class="menu">
+                        <div class="ui simple dropdown item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">Requisition</span>
+
+                            <div class="menu">
+                                <a class="item">Blank</a>
+
+                                <hr>
+
+                                <div class="item">Template 1</div>
+                                <div class="item">Template 2</div>
+                                <div class="item">Template 3</div>
+                            </div>
+                        </div>
+
+                        <a class="item">Candidate</a>
+                        <a class="item">Assignment</a>
+
+                        <!--<hr>
+
+                        <a class="item">Timesheet</a>
+                        <a class="item">Expense</a>
+                        <a class="item">OPW</a>-->
+
+                        <hr>
+
+                        <a class="item">Batch Timesheet</a>
+                        <a class="item">Batch Expense</a>
+                        <a class="item">Batch OPW</a>
+                    </div>
+                </div>
+
+                <div class="ui simple dropdown item">
+                    Manage
+
+                    <div class="menu">
+                        <a class="item">Workforce</a>
+                        <a class="item">Certifications</a>
+                        <a class="item">Forms</a>
+                        <a class="item">Links</a>
+
+                        <hr>
+
+                        <a class="item">Candidates</a>
+                        <a class="item">Assignments</a>
+                        <a class="item">Certifications</a>
+
+                        <hr>
+
+                        <div class="ui simple dropdown item">
+                            <i class="dropdown icon"></i>
+                            Audit
+
+                            <div class="menu">
+                                <a class="item">Timesheet</a>
+                                <a class="item">Expense</a>
+                                <a class="item">OPW</a>
+                            </div>
+                        </div>
+
+                        <div class="ui simple dropdown item">
+                            <i class="dropdown icon"></i>
+                            Financial
+
+                            <div class="menu">
+                                <a class="item">Invoicing</a>
+                                <a class="item">Pay/Bill</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui simple dropdown item">
+                    Reports
+
+                    <div class="menu">
+                        <div class="ui simple dropdown item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">Assignment</span>
+
+                            <div class="menu">
+                                <a class="item">Active Assignments</a>
+                                <a class="item">Available Candidates</a>
+                            </div>
+                        </div>
+
+                        <div class="ui simple dropdown item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">Certifications</span>
+
+                            <div class="menu">
+                                <a class="item">Upcoming Expirations</a>
+                                <a class="item">Contractor Compliance</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui simple dropdown item">
+                    System
+
+                    <div class="menu">
+                        <a class="item">Compass</a>
+                        <a class="item">Accounts</a>
+                        <a class="item">Browser Compatibility</a>
+
+                        <div class="ui simple dropdown item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">Data Maintenance</span>
+
+                            <div class="menu">
+                                <a class="item">Jobs</a>
+                                <a class="item">Locations</a>
+                                <a class="item">Cost Centers</a>
+                                <a class="item">Data Types</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ul id="quick-nav" class="simple right menu columns">
+                <li>
+                    <a class="item">
+                        <i class="large user icon"></i>
+                        <div class="quick-nav-label">User</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="item">
+                        <i class="large mail outline icon"></i>
+                        <div class="quick-nav-label">Mail</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="item">
+                        <i class="large help icon"></i>
+                        <div class="quick-nav-label">Help</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="item" id="signout-link">
+                        <i class="large sign out icon"></i>
+                        <div class="quick-nav-label">Exit</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div id="content" class="ui container">
+
+            <div class="ui small stackable top attached tabular menu">
+                <a class="active item" data-tab="main-tab">Main</a>
+                <a class="item" data-tab="contact-tab">Contact</a>
+                <a class="item" data-tab="options-tab">Options</a>
+                <a class="item" data-tab="organization-tab">Organization</a>
+                <a class="item" data-tab="notifications-tab">Notifications</a>
+                <a class="item" data-tab="systems-tab">Systems</a>
+                <a class="item" data-tab="certifications-tab">Certifications</a>
+            </div>
+
+            <div class="ui active bottom attached segment tab" data-tab="main-tab">
+                <div class="ui stackable grid">
+                    <div class="eight wide centered column">
+                        <form class="ui form">
+                            <div class="disabled field">
+                                <label>Username</label>
+                                <input type="email" value="joshua.clark@cdicorp.com">
+                            </div>
+
+                            <div class="field">
+                                <label>Password</label>
+                                <button id="change-password" class="ui right labeled inverted green icon button">
+                                    Change
+                                    <i class="ui right arrow icon"></i>
+                                </button>
+                            </div>
+
+                            <div class="field">
+                                <label>Name 1</label>
+                                <input type="text" value="Joshua">
+                            </div>
+
+                            <div class="field">
+                                <label>Name 2</label>
+                                <input type="text">
+                            </div>
+
+                            <div class="field">
+                                <label>Name 3</label>
+                                <input type="text" value="Clark">
+                            </div>
+
+                            <div class="field">
+                                <label>Name 4</label>
+                                <input type="text">
+                            </div>
+
+                            <div class="field">
+                                <label>Name 5</label>
+                                <input type="text">
+                            </div>
+
+                            <div class="disabled field">
+                                <label>Title</label>
+                                <input type="text">
+                            </div>
+
+                            <div class="field">
+                                <label>Date Format</label>
+                                <select class="ui dropdown">
+                                    <option selected>11/01/2016</option>
+                                    <option>01/11/2016</option>
+                                    <option>2016-11-01</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label>Language</label>
+                                <select class="ui dropdown">
+                                    <option selected>English</option>
+                                    <option>Español</option>
+                                    <option>Français</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label>Time Format</label>
+                                <select class="ui dropdown">
+                                    <option selected>11:22 AM (12H)</option>
+                                    <option>11:22 (24H)</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label>Time Zone</label>
+                                <select class="ui dropdown">
+                                    <option>[UTC-03:30] Newfoundland</option>
+                                    <option>[UTC-04:00] Atlantic Time (Canada)</option>
+                                    <option selected>[UTC-05:00] Eastern Time (US & Canada)</option>
+                                    <option>[UTC-06:00] Central Time (US & Canada)</option>
+                                    <option>[UTC-07:00] Mountain Time (US & Canada)</option>
+                                    <option>[UTC-07:00] Arizona</option>
+                                    <option>[UTC-08:00] Pacific Time (US & Canada)</option>
+                                    <option>[UTC-09:00] Alaska</option>
+                                    <option>[UTC-10:00] Hawaii</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label>Type</label>
+                                <select class="ui disabled dropdown">
+                                    <option selected>System Admin</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label>Status</label>
+                                <select class="ui disabled dropdown">
+                                    <option selected>Active</option>
+                                </select>
+                            </div>
+
+                            <button class="ui right floated green button">Save</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="password-modal" class="ui modal">
+                    <div class="header">
+                        Change Password
+                    </div>
+
+                    <div class="content">
+                        <div class="ui grid">
+                            <div class="eight wide centered column">
+                                <p>A strong password is your front line of defense against someone impersonating you online. Additionally, you can help protect the sensitivity of company information by choosing a strong password.</p>
+                                <p>As a reminder, good passwords:</p>
+                                <ul>
+                                    <li>Are at least 8 characters in length (longer is better)</li>
+                                    <li>Contain a mix of characters from each of these four groups: lower case characters, upper case characters, numbers, and non-alphabetic characters (e.g.: !@#$%^^&*()_-)</li>
+                                    <li>Are not based on words that appear in the dictionary</li>
+                                    <li>Do not contain information associated with you, such as your name or social security number</li>
+                                    <li>Are not re-used or used across more than one site</li>
+                                </ul>
+
+                                <form class="ui form">
+                                    <div class="field">
+                                        <label>Password</label>
+                                        <input type="password">
+                                    </div>
+
+                                    <div class="field">
+                                        <label>Password (again)</label>
+                                        <input type="password">
+                                    </div>
+
+                                    <button class="ui green button">Save</button>
+                                    <button class="ui button">Cancel</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui bottom attached segment tab" data-tab="contact-tab">
+                <div class="ui stackable grid">
+                    <div class="twelve wide centered column">
+                        <div class="ui stackable grid">
+                            <div class="eight wide column">
+                                <h3>Email Addresses</h3>
+
+                                <form class="ui form">
+                                    <div class="required field">
+                                        <label>Address</label>
+                                        <input type="email">
+                                    </div>
+
+                                    <div class="field">
+                                        <label>Type</label>
+                                        <select class="ui dropdown">
+                                            <option>Primary</option>
+                                            <option>CC</option>
+                                        </select>
+                                    </div>
+
+                                    <button class="ui right floated green button">Add</button>
+                                    <br class="clear">
+                                </form>
+
+                                <br>
+
+                                <table class="ui compact table">
+                                    <thead>
+                                        <tr><th colspan="3">Associated Email Addresses</th></tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>Primary</td>
+                                            <td>joshua.clark@cdicorp.com</td>
+                                            <td>
+                                                <button class="ui tiny inverted red right floated button">Delete</button>
+                                                <div class="clear"></div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>CC</td>
+                                            <td>toastyghost@live.com</td>
+                                            <td>
+                                                <button class="ui tiny inverted red right floated button">Delete</button>
+                                                <div class="clear"></div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="eight wide column">
+                                <h3>Phone Numbers</h3>
+
+                                <form class="ui form">
+                                    <div class="required field">
+                                        <label>Number</label>
+                                        <input type="tel">
+                                    </div>
+
+                                    <div class="field">
+                                        <label>Extension</label>
+                                        <input type="tel">
+                                    </div>
+
+                                    <div class="field">
+                                        <label>Phone Type</label>
+                                        <select class="ui dropdown">
+                                            <option>Fax</option>
+                                            <option selected>Mobile</option>
+                                            <option>Work</option>
+                                        </select>
+                                    </div>
+
+                                    <button class="ui right floated green button">Add</button>
+                                    <br class="clear">
+                                </form>
+
+                                <br>
+
+                                <table class="ui compact table">
+                                    <thead>
+                                        <tr><th colspan="3">Associated Phone Numbers</th></tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>Mobile</td>
+                                            <td>(123) 456-7890</td>
+                                            <td>
+                                                <button class="ui tiny right floated inverted red button">Delete</button>
+                                                <div class="clear"></div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Work</td>
+                                            <td>(098) 765-4321</td>
+                                            <td>
+                                                <button class="ui tiny right floated inverted red button">Delete</button>
+                                                <div class="clear"></div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui bottom attached segment tab" data-tab="options-tab">
+                <div class="ui stackable grid">
+                    <div class="three wide column">
+                        <h3>Email Notifications</h3>
+
+                        <form class="ui form">
+                            <div class="field">
+                                <div class="ui checkbox">
+                                    <input id="requisition-notification-checkbox" type="checkbox">
+                                    <label for="requisition-notification-checkbox">Requisition</label>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="ui checkbox">
+                                    <input id="candidate-notification-checkbox" type="checkbox">
+                                    <label for="candidate-notification-checkbox">Candidate</label>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="ui checkbox">
+                                    <input id="assignment-notification-checkbox" type="checkbox">
+                                    <label for="assignment-notification-checkbox">Assignment</label>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="ui checkbox">
+                                    <input id="timesheet-notification-checkbox" type="checkbox">
+                                    <label for="timesheet-notification-checkbox">Timesheet</label>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="ui checkbox">
+                                    <input id="expense-notification-checkbox" type="checkbox">
+                                    <label for="expense-notification-checkbox">Expense</label>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="ui checkbox">
+                                    <input id="opw-notification-checkbox" type="checkbox">
+                                    <label for="opw-notification-checkbox">Other Pay Work</label>
+                                </div>
+                            </div>
+
+                            <button class="ui green button">Save</button>
+                        </form>
+                    </div>
+
+                    <div class="three wide column">
+                        <h3>Onboarding Wizard</h3>
+
+                        <form class="ui form">
+                            <div class="field">
+                                <div class="ui checkbox">
+                                    <input id="onboarding-wizard-checkbox" type="checkbox">
+                                    <label for="onboarding-wizard-checkbox">Enabled by default</label>
+                                </div>
+                            </div>
+
+                            <button class="ui green button">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui bottom attached segment tab" data-tab="organization-tab">
+                <div class="ui stackable grid">
+                    <div class="twelve wide centered column">
+                        <div class="ui stackable grid">
+                            <div class="row">
+                                <div class="eight wide column">
+                                    <h3>Divisions</h3>
+
+                                    <form class="ui form">
+                                        <div class="field">
+                                            <select class="ui dropdown">
+                                                <option>LP</option>
+                                                <option>MLP</option>
+                                                <option>MP</option>
+                                            </select>
+                                        </div>
+
+                                        <button class="ui right floated green button">Add</button>
+                                        <br class="clear">
+                                    </form>
+
+                                    <br>
+
+                                    <table class="ui compact table">
+                                        <thead><tr><th colspan="2">Associated Divisions</th></tr></thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>MLP</td>
+                                                <td>
+                                                    <button class="ui tiny right floated inverted red button">Delete</button>
+                                                    <div class="clear"></div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="eight wide column">
+                                    <h3>Roles</h3>
+
+                                    <form class="ui form">
+                                        <div class="field">
+                                            <select class="ui dropdown">
+                                                <option>Account Takeover - Readonly</option>
+                                                <option>Assignment Extension Create</option>
+                                                <option>Batch</option>
+                                                <option>Contractor</option>
+                                                <option>Entity Manager</option>
+                                                <option>Expense Audit</option>
+                                                <option>Finance</option>
+                                                <option>Help Desk</option>
+                                                <option>HR Admin</option>
+                                                <option>Invoice View</option>
+                                                <option>Local Admin</option>
+                                                <option>Manager</option>
+                                                <option>Notify IT/Engineering</option>
+                                                <option>Notify Reqs Not Filled</option>
+                                                <option>PayBill</option>
+                                                <option>PMO</option>
+                                                <option>Report - Metrics</option>
+                                                <option>Requisition Approver</option>
+                                                <option>Requisition Audit</option>
+                                                <option>Requisition Gatekeeper</option>
+                                                <option>Requisition Viewer</option>
+                                                <option>Requisition Writer</option>
+                                                <option>SOW Approver</option>
+                                                <option>SOW Audit</option>
+                                                <option>SOW Viewer</option>
+                                                <option>SOW Writer</option>
+                                                <option>SSC</option>
+                                                <option>Supervisor</option>
+                                                <option>Supplier</option>
+                                                <option>Supplier Associate</option>
+                                                <option>System Admin</option>
+                                                <option>Time Adjuster</option>
+                                            </select>
+                                        </div>
+
+                                        <button class="ui right floated green button">Add</button>
+                                        <br class="clear">
+                                    </form>
+
+                                    <br>
+
+                                    <table class="ui compact table">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">Associated Roles</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td>Local Admin</td>
+                                                <td>
+                                                    <button class="ui tiny right floated inverted red button">Delete</button>
+                                                    <div class="clear"></div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Notify IT/Engineering</td>
+                                                <td>
+                                                    <button class="ui tiny right floated inverted red button">Delete</button>
+                                                    <div class="clear"></div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Notify Reqs Not Filled</td>
+                                                <td>
+                                                    <button class="ui tiny right floated inverted red button">Delete</button>
+                                                    <div class="clear"></div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Report - Metrics</td>
+                                                <td>
+                                                    <button class="ui tiny right floated inverted red button">Delete</button>
+                                                    <div class="clear"></div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>System Admin</td>
+                                                <td>
+                                                    <button class="ui tiny right floated inverted red button">Delete</button>
+                                                    <div class="clear"></div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <table class="ui table">
+                                        <thead><tr><th>Associated Roles From Orgs</th></tr></thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>PMO (PMO)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <br><br>
+
+                            <div class="row">
+                                <div class="sixteen wide centered column">
+                                    <h3>Delegates</h3>
+
+                                    <form class="ui form">
+                                        <div class="four fields">
+                                            <div class="field">
+                                                <label>Delegate</label>
+                                                <select class="ui dropdown">
+                                                    <option>Adams, Chris</option>
+                                                    <option>Ajayi, Marie</option>
+                                                    <option>Allan, Barb</option>
+                                                    <option>Alvarez, Pedro</option>
+                                                    <option>Anderson, Dave</option>
+                                                    <option>Anderson, Wayne</option>
+                                                    <option>Arabsky, Paul</option>
+                                                    <option>Auger, Ray</option>
+                                                    <option>Backs, Tony</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="field">
+                                                <label>Role</label>
+                                                <select class="ui dropdown">
+                                                    <option>Local Admin</option>
+                                                    <option>Notify IT/Engineering</option>
+                                                    <option>Notify Reqs Not Filled</option>
+                                                    <option>Report - Metrics</option>
+                                                    <option>System Admin</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="field">
+                                                <label>Start Date</label>
+                                                <input type="date">
+                                            </div>
+
+                                            <div class="field">
+                                                <label>End Date</label>
+                                                <input type="date">
+                                            </div>
+                                        </div>
+
+                                        <button class="ui right floated green button">Add</button>
+                                        <br class="clear">
+                                    </form>
+
+                                    <br>
+
+                                    <table class="ui compact table">
+                                        <thead>
+                                            <tr>
+                                                <th>Delegate</th>
+                                                <th>Role</th>
+                                                <th>Start Date</th>
+                                                <th colspan="2">End Date</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td>Alvarez, Pedro</td>
+                                                <td>Notify Reqs Not Filled</td>
+                                                <td>11-01-2016</td>
+                                                <td>11-24-2016</td>
+                                                <td>
+                                                    <button class="ui tiny right floated inverted red button">Delete</button>
+                                                    <div class="clear"></div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Adams, Chris</td>
+                                                <td>Local Admin</td>
+                                                <td>11-01-2016</td>
+                                                <td>11-24-2016</td>
+                                                <td>
+                                                    <button class="ui tiny right floated inverted red button">Delete</button>
+                                                    <div class="clear"></div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui bottom attached segment tab" data-tab="notifications-tab">
+
+                <div class="pagination-menu-container">
+                    1-20 of 113
+
+                    <div id="pagination-menu-top" class="ui tiny pagination menu">
+                        <a class="pagination-prev item">
+                            <i class="ui left caret icon"></i>
+                        </a>
+
+                        <a class="pagination-next item">
+                            <i class="ui right caret icon"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <br class="clear">
+
+                <div class="pagination-menu-container">
+                    <div class="ui tiny pagination menu">
+                        <a class="active item">1</a>
+                        <a class="item">2</a>
+                        <a class="item">3</a>
+                        <a class="item">4</a>
+                        <a class="item">5</a>
+                        <a class="item">6</a>
+                    </div>
+                </div>
+
+                <br class="clear">
+
+                <table class="ui compact single line selectable table">
+                    <thead>
+                        <tr>
+                            <th>To</th>
+                            <th>Subject</th>
+                            <th>Sent</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>LiquidMedium: A Certification has been submitted for: Lopez, Jeffrey</td>
+                            <td>06/02/2016</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>LiquidMedium: A Certification has been submitted for: Lopez, Jeffrey</td>
+                            <td>06/02/2016 04:18 PM</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>LiquidMedium: A Certification has been submitted for: Kelly, Trina</td>
+                            <td>04/29/2016 12:56 PM</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>LiquidMedium: A Certification has been submitted for: Kelly, Trina</td>
+                            <td>04/29/2016 12:47 PM</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Certification Management Report for Tuesday April 12, 2016</td>
+                            <td>04/12/2016 02:17 PM</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Certification Management Report for Tuesday April 12, 2016</td>
+                            <td>04/12/2016 02:04 PM</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Certification Management Report for Tuesday April 12, 2016</td>
+                            <td>04/12/2016 02:03 PM</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Certification Management Report for Tuesday April 12, 2016</td>
+                            <td>04/12/2016 02:00 PM</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Certification Management Report for Tuesday April 12, 2016</td>
+                            <td>04/12/2016 01:58 PM</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Certification Management Report for Tuesday April 12, 2016</td>
+                            <td>04/12/2016 01:53 PM</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Certification Management Report for Monday April 04, 2016 Part 6</td>
+                            <td>04/04/2016 05:06 PM</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Certification Management Report for Monday April 04, 2016 Part 5</td>
+                            <td>04/04/2016 05:05 PM</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Certification Management Report for Monday April 04, 2016 Part 4</td>
+                            <td>04/04/2016 05:05 PM</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Certification Management Report for Monday April 04, 2016 Part 3</td>
+                            <td>04/04/2016 05:04 PM</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Certification Management Report for Monday April 04, 2016 Part 2</td>
+                            <td>04/04/2016 05:04 PM</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Certification Management Report for Monday April 04, 2016 Part 1</td>
+                            <td>04/04/2016 05:03 PM</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Certification Management Report for Monday April 04, 2016 Part 6</td>
+                            <td>04/04/2016 04:59 PM</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Certification Management Report for Monday April 04, 2016 Part 5</td>
+                            <td>04/04/2016 04:59 PM</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Certification Management Report for Monday April 04, 2016 Part 4</td>
+                            <td>04/04/2016 04:59 PM</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Certification Management Report for Monday April 04, 2016 Part 3</td>
+                            <td>04/04/2016 04:59 PM</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Certification Management Report for Monday April 04, 2016 Part 2</td>
+                            <td>04/04/2016 04:59 PM</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Certification Management Report for Monday April 04, 2016 Part 1</td>
+                            <td>04/04/2016 04:59 PM</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Certification Management Report for Monday April 04, 2016 Part 6</td>
+                            <td>04/04/2016 04:53 PM</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Certification Management Report for Monday April 04, 2016 Part 5</td>
+                            <td>4/04/2016 04:53 PM</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Certification Management Report for Monday April 04, 2016 Part 4</td>
+                            <td>04/04/2016 04:53 PM</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Certification Management Report for Monday April 04, 2016 Part 3</td>
+                            <td>04/04/2016 04:53 PM</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="pagination-menu-container">
+                    1-20 of 113
+
+                    <div id="pagination-menu-bottom" class="ui tiny pagination menu">
+                        <a class="pagination-prev item">
+                            <i class="ui left caret icon"></i>
+                        </a>
+
+                        <a class="pagination-next item">
+                            <i class="ui right caret icon"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <br class="clear">
+
+                <div class="pagination-menu-container">
+                    <div class="ui tiny pagination menu">
+                        <a class="active item">1</a>
+                        <a class="item">2</a>
+                        <a class="item">3</a>
+                        <a class="item">4</a>
+                        <a class="item">5</a>
+                        <a class="item">6</a>
+                    </div>
+                </div>
+
+                <br class="clear">
+            </div>
+
+            <div class="ui bottom attached segment tab" data-tab="systems-tab">
+                <div class="ui stackable grid">
+                    <div class="six wide centered column">
+                        <form class="ui form">
+                            <div class="field">
+                                <label>System</label>
+                                <select class="ui dropdown">
+                                    <option>Compliance</option>
+                                    <option>Congruent</option>
+                                    <option>Invensys</option>
+                                    <option>Parker</option>
+                                    <option>Standard</option>
+                                    <option>Williams</option>
+                                </select>
+                            </div>
+
+                            <button class="ui right floated green button">Add</button>
+                            <br class="clear">
+                        </form>
+
+                        <br>
+
+                        <table class="ui compact table">
+                            <thead>
+                                <tr>
+                                    <th>Associated Systems</th>
+                                    <th colspan="2">Default</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>Compliance</td>
+                                    <td><i class="ui green checkmark icon"></i></td>
+                                    <td>
+                                        <button class="ui tiny right floated inverted red button">Delete</button>
+                                        <div class="clear"></div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Congruent</td>
+                                    <td></td>
+                                    <td>
+                                        <button class="ui tiny right floated inverted red button">Delete</button>
+                                        <button class="ui tiny right floated inverted green button">Default</button>
+                                        <div class="clear"></div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Invensys</td>
+                                    <td></td>
+                                    <td>
+                                        <button class="ui tiny right floated inverted red button">Delete</button>
+                                        <button class="ui tiny right floated inverted green button">Default</button>
+                                        <div class="clear"></div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Parker</td>
+                                    <td></td>
+                                    <td>
+                                        <button class="ui tiny right floated inverted red button">Delete</button>
+                                        <button class="ui tiny right floated inverted green button">Default</button>
+                                        <div class="clear"></div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Standard</td>
+                                    <td></td>
+                                    <td>
+                                        <button class="ui tiny right floated inverted red button">Delete</button>
+                                        <button class="ui tiny right floated inverted green button">Default</button>
+                                        <div class="clear"></div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Williams</td>
+                                    <td></td>
+                                    <td>
+                                        <button class="ui tiny right floated inverted red button">Delete</button>
+                                        <button class="ui tiny right floated inverted green button">Default</button>
+                                        <div class="clear"></div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Congruent</td>
+                                    <td></td>
+                                    <td>
+                                        <button class="ui tiny right floated inverted red button">Delete</button>
+                                        <button class="ui tiny right floated inverted green button">Default</button>
+                                        <div class="clear"></div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui bottom attached segment tab" data-tab="certifications-tab">
+                <div class="ui small top attached tabular menu">
+                    <a class="active item" data-tab="certs-tab-current">Current</a>
+                    <a class="item" data-tab="certs-tab-history">History</a>
+                </div>
+
+                <div class="ui active bottom attached segment tab" data-tab="certs-tab-current">
+                    <div class="ui accordion">
+                        <div class="active title">
+                            <h4>
+                                <i class="dropdown icon"></i>
+                                Required (14)
+                            </h4>
+                        </div>
+
+                        <div class="active content">
+                            <table class="ui compact single line selectable table">
+                                <thead>
+                                    <tr>
+                                        <th class="status-marker"><!-- Status color code --></th>
+                                        <th>Status</th>
+                                        <th>Document Type</th>
+                                        <th>Expires</th>
+                                        <th>File</th>
+                                        <th><!-- Notes icon --></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr class="status expired">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Expired</td>
+                                        <td class="document-name">Drivers Training</td>
+                                        <td class="collapsing cert-date">10/15/2015</td>
+                                        <td><a href="#">placeholder.pdf</a></td>
+                                        <td class="collapsing">
+                                            <a href="#"><i class="ui yellow sticky note icon"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="status expired">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Expired</td>
+                                        <td class="document-name">Automobile Insurance</td>
+                                        <td class="collapsing cert-date">1/14/2016</td>
+                                        <td><a href="#">placeholder.pdf</a></td>
+                                        <td class="collapsing">
+                                            <a href="#"><i class="ui yellow sticky note icon"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="status expired">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Expired</td>
+                                        <td class="document-name">Commercial General Liability Insurance - $2 million</td>
+                                        <td class="collapsing cert-date">2/14/2016</td>
+                                        <td><a href="#">placeholder.pdf</a></td>
+                                        <td class="collapsing">
+                                            <a href="#"><i class="ui shadowed yellow sticky note icon"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="status expiring">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Expiring</td>
+                                        <td class="document-name">TCPL - Online Excavation Training</td>
+                                        <td class="collapsing cert-date">11/22/2016</td>
+                                        <td><a href="#">placeholder.pdf</a></td>
+                                        <td class="collapsing">
+                                            <a href="#"><i class="ui shadowed yellow sticky note icon"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="status expiring">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Expiring</td>
+                                        <td class="document-name">Drivers Abstract</td>
+                                        <td class="collapsing cert-date">1/1/2017</td>
+                                        <td><a href="#">placeholder.pdf</a></td>
+
+                                        <td class="collapsing">
+                                            <a href="#"><i class="ui yellow sticky note icon"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">Corporate Security</td>
+                                        <td class="collapsing cert-date"><strong>No expiration</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">TCPL - Inter-Affiliate Codes</td>
+                                        <td class="collapsing cert-date"><strong>No expiration</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">TCPL Contractor Safety Handbook</td>
+                                        <td class="collapsing cert-date"><strong>No expiration</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status approved">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Approved</td>
+                                        <td class="document-name">Ground Disturbance Level 2</td>
+                                        <td class="collapsing cert-date">11/25/2017</td>
+                                        <td><a href="#">placeholder.pdf</a></td>
+                                        <td class="collapsing">
+                                            <a href="#"><i class="ui shadowed yellow sticky note icon"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="status approved">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Approved</td>
+                                        <td class="document-name">Standard First Aid with CPR</td>
+                                        <td class="collapsing cert-date">11/27/2017</td>
+                                        <td><a href="#">placeholder.pdf</a></td>
+                                        <td class="collapsing">
+                                            <a href="#"><i class="ui yellow sticky note icon"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="status approved">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Approved</td>
+                                        <td class="document-name">TCPL - HSE Orientation Version 4</td>
+                                        <td class="collapsing cert-date">7/23/2017</td>
+                                        <td><a href="#">placeholder.pdf</a></td>
+                                        <td class="collapsing">
+                                            <a href="#"><i class="ui yellow sticky note icon"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="status approved">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Approved</td>
+                                        <td class="document-name">TDG</td>
+                                        <td class="collapsing cert-date">11/21/2017</td>
+                                        <td><a href="#">placeholder.pdf</a></td>
+                                        <td class="collapsing">
+                                            <a href="#"><i class="ui yellow sticky note icon"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="status approved">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Approved</td>
+                                        <td class="document-name">WCB/WSIB/DI</td>
+                                        <td class="collapsing cert-date">No expiration</td>
+                                        <td><a href="#">placeholder.pdf</a></td>
+                                        <td class="collapsing">
+                                            <a href="#"><i class="ui yellow sticky note icon"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="status approved">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Approved</td>
+                                        <td class="document-name">WHMIS</td>
+                                        <td class="collapsing cert-date">7/22/2018</td>
+                                        <td><a href="#">placeholder.pdf</a></td>
+                                        <td class="collapsing">
+                                            <a href="#"><i class="ui yellow sticky note icon"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="ui accordion">
+                        <div class="title">
+                            <h4>
+                                <i class="dropdown icon"></i>
+                                Optional (43)
+                            </h4>
+                        </div>
+
+                        <div class="content">
+                            <table class="ui compact single line selectable table">
+                                <thead>
+                                    <tr>
+                                        <th class="status-marker"><!-- Status color code --></th>
+                                        <th>Status</th>
+                                        <th>Document Type</th>
+                                        <th>Expires</th>
+                                        <th>File</th>
+                                        <th><!-- Notes icon --></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr class="status expired">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Expired</td>
+                                        <td class="document-name">H2S Alive</td>
+                                        <td class="collapsing cert-date">5/10/2014</td>
+                                        <td><a href="#">placeholder.pdf</a></td>
+                                        <td class="collapsing">
+                                            <a href="#"><i class="ui yellow sticky note icon"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">API 1169 - Pipeline Construction Inspector</td>
+                                        <td class="collapsing cert-date">-</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">API 510 - Pressure Vessel Inspector</td>
+                                        <td class="collapsing cert-date"></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">API 570 - Piping Inspector</td>
+                                        <td class="collapsing cert-date"></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">API 571 - Corrosion and Materials</td>
+                                        <td class="collapsing cert-date"></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">API 577 - Welding Inspection and Metallurgy</td>
+                                        <td class="collapsing cert-date"></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">API 580 - Risk Based Inspection</td>
+                                        <td class="collapsing cert-date"></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">API 653 - Aboveground Storage Tank Inspection</td>
+                                        <td class="collapsing cert-date"></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">API 936 - Refractory Personnel</td>
+                                        <td class="collapsing cert-date"></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">Arc Flash</td>
+                                        <td class="collapsing cert-date"><strong>No expiration</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">Asbestos Handling</td>
+                                        <td class="collapsing cert-date"><strong>No expiration</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">Bear Awareness</td>
+                                        <td class="collapsing cert-date"><strong>No expiration</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">Commercial General Liability Insurance - $5 million</td>
+                                        <td class="collapsing cert-date"></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">Confined Space Entry</td>
+                                        <td class="collapsing cert-date"></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">CSST ASP in French</td>
+                                        <td class="collapsing cert-date"><strong>No expiration</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">CWB/B-Pressure/Journeyman</td>
+                                        <td class="collapsing cert-date"></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">Designated Substance Hazard Communication</td>
+                                        <td class="collapsing cert-date"><strong>No expiration</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">Driver's License</td>
+                                        <td class="collapsing cert-date"></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">Enbridge Consent Form</td>
+                                        <td class="collapsing cert-date"><strong>No expiration</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">Enbridge Inspector Enrollment Form</td>
+                                        <td class="collapsing cert-date"><strong>No expiration</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">Enbridge Safety Manual Acknowledgement</td>
+                                        <td class="collapsing cert-date"><strong>No expiration</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">Excavation and Trenching</td>
+                                        <td class="collapsing cert-date"><strong>No expiration</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">Fire Extinguisher Training</td>
+                                        <td class="collapsing cert-date"><strong>No expiration</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">Health and Safety Chemical & X-Ray Radiation (NDT)</td>
+                                        <td class="collapsing cert-date"><strong>No expiration</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">Inclement Weather Extreme Cold</td>
+                                        <td class="collapsing cert-date"><strong>No expiration</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">LSE - Leadership Safety Excellence</td>
+                                        <td class="collapsing cert-date">-</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">Lyme Disease Information Training</td>
+                                        <td class="collapsing cert-date"><strong>No expiration</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">NACE</td>
+                                        <td class="collapsing cert-date"></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">NCSO/Safety Credentials</td>
+                                        <td class="collapsing cert-date"><strong>No expiration</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">Ontario Health and Safety Awareness</td>
+                                        <td class="collapsing cert-date"><strong>No expiration</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">Outdoor Heat Stress Prevention</td>
+                                        <td class="collapsing cert-date"><strong>No expiration</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">PCST</td>
+                                        <td class="collapsing cert-date"></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">Resume</td>
+                                        <td class="collapsing cert-date"><strong>No expiration</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">Safe Operating Procedure of ATV's</td>
+                                        <td class="collapsing cert-date"><strong>No expiration</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">TCPL - Gas Detection GMI</td>
+                                        <td class="collapsing cert-date"></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">TES Orientation of New Workers - Occupational Health and Safety Handbook</td>
+                                        <td class="collapsing cert-date"><strong>No expiration</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">Visual Eye Exam</td>
+                                        <td class="collapsing cert-date"></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">West Nile Virus</td>
+                                        <td class="collapsing cert-date"><strong>No expiration</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status missing">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Missing</td>
+                                        <td class="document-name">Working Alone Requirements Training</td>
+                                        <td class="collapsing cert-date"><strong>No expiration</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="status approved">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Approved</td>
+                                        <td class="document-name">ATV Snowmobile</td>
+                                        <td class="collapsing cert-date">No expiration</td>
+                                        <td><a href="#">placeholder.pdf</a></td>
+                                        <td class="collapsing">
+                                            <a href="#"><i class="ui yellow sticky note icon"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="status approved">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Approved</td>
+                                        <td class="document-name">CSTS</td>
+                                        <td class="collapsing cert-date">No expiration</td>
+                                        <td><a href="#">placeholder.pdf</a></td>
+                                        <td class="collapsing">
+                                            <a href="#"><i class="ui yellow sticky note icon"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="status approved">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Approved</td>
+                                        <td class="document-name">TCPL - Active Control</td>
+                                        <td class="collapsing cert-date">4/9/2018</td>
+                                        <td><a href="#">placeholder.pdf</a></td>
+                                        <td class="collapsing">
+                                            <a href="#"><i class="ui yellow sticky note icon"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="status approved">
+                                        <td class="status-marker"></td>
+                                        <td class="collapsing status-text">Approved</td>
+                                        <td class="document-name">TCPL - Excavation TOP</td>
+                                        <td class="collapsing cert-date">4/10/2018</td>
+                                        <td><a href="#">placeholder.pdf</a></td>
+                                        <td class="collapsing">
+                                            <a href="#"><i class="ui shadowed yellow sticky note icon"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui bottom attached segment tab" data-tab="certs-tab-history">
+                    <table class="ui compact single line selectable table">
+                        <thead>
+                            <tr>
+                                <th>Document Type</th>
+                                <th>Date</th>
+                                <th>Submitted</th>
+                                <th>File</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Drivers Abstract</td>
+                                <td>Issue: 2016-02-03</td>
+                                <td>2016-02-17 15:54:31</td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td>Drivers Abstract</td>
+                                <td>Issue: 2014-06-02</td>
+                                <td>2016-02-16 19:49:47</td>
+                                <td><a href="#">placeholder.pdf</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="cert-modal" class="ui small modal">
+                    <div class="header">
+                        Add Certification
+                    </div>
+
+                    <div class="content">
+                        <div class="ui grid">
+                            <div class="six wide column">
+                                <form class="ui form">
+                                    <div class="required field">
+                                        <label>Expiration Date</label>
+                                        <input type="date">
+                                    </div>
+
+                                    <div class="required field">
+                                        <label>Document</label>
+                                        <input type="file">
+                                    </div>
+
+                                    <div class="field">
+                                        <label>Notes</label>
+                                        <input type="text">
+                                    </div>
+
+                                    <button class="ui green button">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer" class="ui vertical footer segment">
+            <div class="ui stackable grid">
+
+                <div class="four wide column">
+                    <div id="system-logo">
+                        <img src="assets/images/logos/cdi_logo.png" width="170" height="48" style="background-color: #e7e5e5;">
+                    </div>
+
+                    <div id="system-menu" class="ui custom popup top left transition hidden">
+                        <img src="assets/images/logos/congruent_talent.png"><br>
+                        <img src="assets/images/logos/parker_logo.png"><br>
+                        <img src="assets/images/logos/se_logo.png"><br>
+                        <img src="assets/images/logos/demo_logo.png"><br>
+                        <img src="assets/images/logos/logo_williams.png">
+                    </div>
+
+                    <script>
+                        $(function() {
+                            $('#system-logo').popup({
+                                popup: $('#system-menu'),
+                                on: 'click'
+                            });
+                        });
+                    </script>
+
+                    <div id="logged-in-user">
+                        Logged in as: Clark, Joshua
+                    </div>
+                </div>
+
+                <div class="four wide column"></div>
+                <div class="four wide column"></div>
+                <div id="footer-info-container" class="four wide column">
+                    <p id="footer-info">
+                        &copy; 2016 LiquidMedium&trade;<br>
+                        A product of <a href="https://www.cdicorp.com" target="_blank">CDI Corporation</a><br>
+                        Page generated in 0.0002384 sec
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

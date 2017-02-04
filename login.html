@@ -1,0 +1,60 @@
+<!doctype html>
+<html charset="utf-8" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Semantic UI Test</title>
+    <meta name="description" content="">
+
+    <!-- jQuery -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Semantic UI -->
+    <link rel="stylesheet" href="bower_components/semantic/dist/semantic.min.css">
+    <script src="bower_components/semantic/dist/semantic.min.js"></script>
+
+    <!-- C3/D3 (charts) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.css">
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.js"></script>
+
+    <!-- Custom -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <script src="assets/js/custom.js"></script>
+</head>
+
+<body>
+    <div id="login-wrapper" class="ui middle aligned center aligned grid">
+        <div class="row">
+            <div id="login-logo" class="four wide centered column">
+                <h1 id="liquid-logo">LiquidMedium</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div id="login" class="four wide centered column">
+                <form id="login-form" class="ui large form">
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="user icon"></i>
+                            <input type="text" placeholder="Username" autofocus>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="lock icon"></i>
+                            <input type="password" placeholder="Password">
+                        </div>
+                    </div>
+
+                    <a id="forgot-password" href="#">Forgot password?</a>
+                    <button class="ui large right floated blue button">Log In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
